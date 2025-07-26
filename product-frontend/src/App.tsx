@@ -41,7 +41,7 @@ export default function App() {
     fetchProducts();
   }, []);
 
-  // Filter products based on search term
+
   const filteredProducts = useMemo(() => {
     if (!searchTerm.trim()) {
       return products;
@@ -55,7 +55,7 @@ export default function App() {
     );
   }, [products, searchTerm]);
 
-  // Count HP Pavilion products
+
   const hpPavilionCount = useMemo(() => {
     return products.filter(product =>
       product.name.toLowerCase().includes('hp pavilion') ||
@@ -63,7 +63,7 @@ export default function App() {
     ).length;
   }, [products]);
 
-  // Count all HP products
+
   const hpCount = useMemo(() => {
     return products.filter(product =>
       product.name.toLowerCase().includes('hp')
@@ -73,7 +73,7 @@ export default function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ✅ Form validation with toast
+   
     if (!form.name.trim()) {
       toast.error('⚠️ Product name is required');
       return;
@@ -195,7 +195,6 @@ export default function App() {
               </h1>
             </div>
 
-            {/* <p className=" text-blue-800 font-semibold">Your Ultimate HP Laptop Management Center</p> */}
           </header>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -339,13 +338,13 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex justify-between items-center mb-4">
-                  {/* Total Products Count */}
+                  
                   <div className="flex gap-3">
-                    {/* Total HP Count */}
+                    
                     <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                       Total HP: <span className="text-yellow-300 font-bold">{hpCount}</span>
                     </div>
-                    {/* HP Pavilion Count */}
+                   
                     <div className="bg-gradient-to-r from-green-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                       HP Pavilion: <span className="text-yellow-300 font-bold">{hpPavilionCount}</span>
                     </div>
